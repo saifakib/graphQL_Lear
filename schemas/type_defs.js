@@ -15,6 +15,24 @@ const typeDefs = `
         user(id: ID!): User!
     }
 
+    input CreateUserInput {
+        name: String!
+        username: String!
+        age: Int!
+        country: Country = BANGLADESH
+    }
+
+    input UpdateUserInput {
+        id: Int!
+        username: String!
+    }
+
+    type Mutation {
+        createUser(input: CreateUserInput!): User!
+        updateUser(input: UpdateUserInput!): User!
+        deleteUser(id: ID!): User!
+    }
+    
     enum Country {
         BANGLADESH
         INDIA
@@ -23,6 +41,6 @@ const typeDefs = `
         GERMANY
         CANADA
     }
-`
+`;
 
-module.exports = { typeDefs }
+module.exports = { typeDefs };
